@@ -1,0 +1,16 @@
+public class Solution {
+    public int AddRungs(int[] rungs, int dist) {
+            int curentHeight =0;
+            int addRungs =0;
+
+            for(int i=0; i<rungs.Length; i++)
+            {
+                if(rungs[i]-curentHeight >dist)
+                {
+                    addRungs = addRungs + (rungs[i]-curentHeight-1)/dist;
+                }
+                curentHeight=rungs[i];
+            }
+            return addRungs;
+    }
+}
