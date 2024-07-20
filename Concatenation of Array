@@ -1,0 +1,17 @@
+public class Solution {
+    public int[] GetConcatenation(int[] nums) {
+        int length = nums.Length;
+        int[] array= new int[2*length];
+
+        for(int i=0; i<length; i++)
+        {
+            array[i]=nums[i];
+        }
+        for(int i=0; i<length; i++)
+        {
+            array[i+length]=nums[i];
+        }
+
+        return array;
+    }
+}
