@@ -1,0 +1,21 @@
+
+public class Solution {
+    public int CountVowelSubstrings(string word) {
+        int count = 0;
+        HashSet<char> vowel = new HashSet<char>{'a','e','i','o','u'};
+        
+        for(int i=0; i<word.Length; i++)
+        {
+            HashSet<char> container = new HashSet<char>();
+            for(int j=i; j<word.Length; j++)
+            {
+                if(vowel.Contains(word[j])) 
+                {
+                    container.Add(word[j]);
+                    if(container.Count == 5) count++;
+                } else break;
+            }
+        }
+        return count;
+    }
+}
