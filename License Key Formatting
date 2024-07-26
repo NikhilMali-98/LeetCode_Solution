@@ -1,0 +1,28 @@
+public class Solution {
+    public string LicenseKeyFormatting(string s, int k) {
+        StringBuilder str = new StringBuilder();
+        foreach(char ch in s)
+        {
+            if(ch != '-') str.Append(char.ToUpper(ch));
+        }
+
+        int group1 = str.Length % k;
+        if(group1 == 0 && str.Length>0) group1 = k;
+        int i = 0;
+
+        StringBuilder store = new StringBuilder();
+
+        if(group1>0)
+        {
+            store.Append(str.ToString(0,group1));
+             i=group1;
+        } 
+        while(i<str.Length)
+        {
+            store.Append('-');
+            store.Append(str.ToString(i,k));
+            i = i+k;
+        }
+        return store.ToString();
+    }
+}
