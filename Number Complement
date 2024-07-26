@@ -1,0 +1,16 @@
+
+public class Solution {
+    public int FindComplement(int num) {
+        string bin = Convert.ToString(num,2);
+        char[] store = new char[bin.Length];
+
+        for(int i=0; i<bin.Length; i++)
+        {
+            store[i] = bin[i] == '0' ? '1' : '0';
+        }
+
+        string backToString = new string(store);
+        int no = Convert.ToInt32(backToString, 2);
+        return no;
+    }
+}
