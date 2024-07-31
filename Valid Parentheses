@@ -1,0 +1,19 @@
+public class Solution {
+    public bool IsValid(string s) {
+      //  if(s.Length == 0 || s == null || s.Length == 1 ) return false;
+        Stack<char> ch = new Stack<char>();
+        foreach(char c in s)
+        {
+            if(c == '(' || c == '{' || c== '[') ch.Push(c);
+            else
+            {
+              if(ch.Count == 0) return false;
+                char top = ch.Pop();
+                if( ( c == ')' && top != '(' )  ||
+                     (c == ']' && top != '[')  ||
+                      (c == '}' && top != '{') ) return false;
+            }
+        }
+           return ch.Count == 0;
+    }
+}
