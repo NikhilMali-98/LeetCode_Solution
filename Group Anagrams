@@ -1,0 +1,15 @@
+public class Solution {
+    public IList<IList<string>> GroupAnagrams(string[] strs) {
+       var mapped = new Dictionary<string, List<string>>();
+
+       foreach(var s in  strs)
+       {
+         var store = String.Concat(s.OrderBy(c=>c));
+
+         if(! mapped.ContainsKey(store))
+         mapped[store] = new List<string>();
+
+         mapped[store].Add(s);
+       } return new List<IList<string>>(mapped.Values);
+    } 
+}
