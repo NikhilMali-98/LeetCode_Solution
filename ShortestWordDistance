@@ -1,0 +1,19 @@
+public class ShortestWordDistance
+{
+    public int ShortestDistance(string[] words, string word1, string word2)
+    {
+        int w1 = -1;
+        int w2 = -1;
+        int distance = int.MaxValue;
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (words[i] == word1) w1 = i;
+            if (words[i] == word2) w2 = i;
+
+            if (w1 != -1 && w2 != -1)
+                distance = Math.Min(distance, Math.Abs(w1 - w2));
+        }
+        return distance;
+    }
+}
