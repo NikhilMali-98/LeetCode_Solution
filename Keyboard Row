@@ -1,0 +1,27 @@
+public class Solution {
+    public string[] FindWords(string[] words) {
+
+        var hashsett = new HashSet<char>("qwertyuiop");
+        var hashset1 = new HashSet<char>("asdfghjkl");
+        var hashset2 = new HashSet<char>("zxcvbnm");
+        List<string> res = new List<string>();
+
+        foreach(var text in words)
+        {
+            string lower = text.ToLower();
+            HashSet<char>current = new HashSet<char>();
+
+            if(hashsett.Contains(lower[0])) current = hashsett;
+            else if(hashset1.Contains(lower[0])) current = hashset1;
+            else current = hashset2;
+
+            bool isTrue = true;
+            foreach(var v in lower)
+            {
+                if(!current.Contains(v)) isTrue = false;
+            }
+            if(isTrue) res.Add(text);
+        } return res.ToArray();
+
+    }
+}
