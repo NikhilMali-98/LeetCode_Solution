@@ -1,0 +1,5 @@
+select u.name, sum(nvl(r.distance,0)) as travelled_distance 
+from Rides r right join Users u
+on u.id = r.user_id  
+group by u.id, u.name   /* Adding u.id ensures that grouping is done correctly without ambiguity. */
+order by travelled_distance desc, u.name  
