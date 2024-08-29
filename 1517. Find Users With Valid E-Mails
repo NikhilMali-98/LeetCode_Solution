@@ -1,0 +1,75 @@
+select user_id ,name,mail                    
+from Users 
+where regexp_like(mail,'^[A-Za-z]+[a-zA-Z0-9._-]*@leetcode[.]com$')
+
+
+
+/* 
+REGEXP_LIKE (source_string, pattern [, match_parameter])
+source_string: The string or column to be searched.
+pattern: The regular expression pattern you want to match.
+match_parameter: Optional, defines matching behavior, like case sensitivity.
+Explanation of Parameters:
+source_string: This is the string you want to evaluate, such as a column in a table or a literal string.
+
+pattern: A regular expression defining the search pattern. For example:
+
+^ matches the beginning of the string.
+$ matches the end of the string.
+. matches any character except a newline.
+[abc] matches any one of the characters a, b, or c.
+* matches 0 or more occurrences of the preceding element.
++ matches 1 or more occurrences of the preceding element.
+match_parameter: Optional flags to control behavior:
+
+'i': Case-insensitive matching.
+'c': Case-sensitive matching (default).
+'n': Allows a period (.) to match a newline character.
+
+
+Example Usage:
+
+1. Simple Pattern Matching
+Find names that start with "A" (case-insensitive):
+
+SELECT name 
+FROM Employees 
+WHERE REGEXP_LIKE(name, '^A', 'i');
+This will return all names starting with "A" or "a".
+
+2. Matching Digits
+To find strings that contain exactly 5 digits:
+
+SELECT phone_number 
+FROM Contacts 
+WHERE REGEXP_LIKE(phone_number, '^[0-9]{5}$');
+This checks if the phone number has exactly 5 digits.
+
+3. Email Validation
+To validate email addresses:
+
+SELECT email 
+FROM Users 
+WHERE REGEXP_LIKE(email, '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
+
+This pattern checks for a valid email format with a username, "@" symbol, domain name, and a valid top-level domain.
+Key Points to Remember:
+Pattern Anchors:
+
+^ matches the start of a string.
+$ matches the end of a string.
+Quantifiers:
+
+* (0 or more times),
++ (1 or more times),
+{n} (exactly n times),
+{n,m} (between n and m times).
+Special Characters:
+
+Escape special characters like ., *, and + with a backslash (\) if you want to match them literally.
+Character Classes:
+
+[a-z]: Matches any lowercase letter.
+[0-9]: Matches any digit.
+\d: Matches any digit (shortcut).
+*/
