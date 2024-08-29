@@ -1,0 +1,8 @@
+select  patient_id, patient_name, conditions
+from patients
+where regexp_like(conditions, '( |^)\DIAB1')  
+
+
+/*
+( |^)DIAB1: This regular expression ensures that DIAB1 is matched either at the beginning of the string (^DIAB1) or after a space ( DIAB1). This helps to avoid matching DIAB1 as part of other words like SADIAB100.
+*/
