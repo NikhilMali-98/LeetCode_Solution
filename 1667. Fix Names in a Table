@@ -1,0 +1,7 @@
+select user_id, upper(substr(name, 1,1)) || lower(substr(name,2)) as name  from users order by user_id
+
+
+/* 
+UPPER(SUBSTR(string, start_position, length))
+LOWER(SUBSTR(string, start_position, length))
+*/
