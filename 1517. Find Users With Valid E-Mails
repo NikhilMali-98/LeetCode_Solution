@@ -3,7 +3,6 @@ from Users
 where regexp_like(mail,'^[A-Za-z]+[a-zA-Z0-9._-]*@leetcode[.]com$')
 
 
-
 /* 
 REGEXP_LIKE (source_string, pattern [, match_parameter])
 source_string: The string or column to be searched.
@@ -22,7 +21,7 @@ $ matches the end of the string.
 + matches 1 or more occurrences of the preceding element.
 match_parameter: Optional flags to control behavior:
 
-'i': Case-insensitive matching.
+'i': Case-insensitive matching..
 'c': Case-sensitive matching (default).
 'n': Allows a period (.) to match a newline character.
 
